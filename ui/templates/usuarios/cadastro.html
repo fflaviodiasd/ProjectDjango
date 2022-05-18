@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cadastro {% endblock %}
+
+{% block container_fluid %}
+<div class="modal-body">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Adicionar usuário
+    </button>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Cadastro de usuário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="user">
+                    <div class="form-group">
+                        <label for="first_name">Nome</label>
+                        <input type="text" class="form-control form-control-user" id="first_name" placeholder="seu nome"
+                            value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control form-control-user" id="email"
+                            placeholder="@sfiec.org.br" value="">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control form-control-user" id="password"
+                                placeholder="senha" value="">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="conf_password">Confirmação de senha</label>
+                            <input type="password" class="form-control form-control-user" id="conf_password"
+                                placeholder="repeta senha" value="">
+                        </div>
+                    </div>
+                    <a href="{% url 'users:login_url' %}" class="btn btn-primary btn-user btn-sm btn-block">
+                        Cadastrar usuário
+                    </a>
+
+                    <!--<a href="{% url 'index_url' %}" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> Register with Google
+                            </a>-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block js_body %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.register-top-right-link').addClass('active-nav-link-x')
+    })
+</script>
+{% endblock %}
